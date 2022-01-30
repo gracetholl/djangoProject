@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+<link href="https://fonts.googleapis.com/css?family=Uncial Antiqua" rel="stylesheet" type="text/css">
+{% load static %}
+
+{% block page_content %}
+<style>
+  .blue-text {
+    color: #004aad;
+    font-family: "Uncial Antiqua";
+    font-size: 42px;
+    text-align: center;
+  }
+  p {
+    font-size: 18px;
+    font-family: Perpetua
+  }
+  h5 {
+      font-family: Perpetua;
+  }
+</style>
+<body style = "background-color:#f1edde">
+<h1><br></h1>
+<h1 class="blue-text">Welcome to the Library!</h1>
+<h1><br></h1>
+<div class="row">
+
+{% for project in projects %}
+
+    <div class="col-md-4">
+
+        <div class="card mb-4">
+
+            <img class="card-img-top" src="{% static project.image %}">
+
+            <div class="card-body">
+
+                <h5 class="card-title">{{ project.title }}</h5>
+
+                <p class="card-text">{{ project.description }}</p>
+
+                <a href="{% url 'project_detail' project.pk %}"
+
+                   class="btn btn-primary">
+
+                    Read
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
