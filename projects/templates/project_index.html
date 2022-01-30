@@ -4,6 +4,19 @@
 
 {% block page_content %}
 <style>
+    .button {
+        background-color: #004aad;
+        align-items: center;
+        background-clip: padding-box;
+        box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+        box-sizing: border-box;
+        color: #fff;
+        width: auto;
+        display: inline-flex;
+        padding: 10px 15px;
+        transition: all 250ms;
+        border-radius: .25rem;
+    }
   .blue-text {
     color: #004aad;
     font-family: "Uncial Antiqua";
@@ -16,6 +29,10 @@
   }
   h5 {
       font-family: Perpetua;
+  }
+  .cropped {
+      height: 455px;
+      object-fit: cover;
   }
 </style>
 <body style = "background-color:#f1edde">
@@ -30,17 +47,17 @@
 
         <div class="card mb-4">
 
-            <img class="card-img-top" src="{% static project.image %}">
+            <img class="cropped" src="{% static project.image %}">
 
             <div class="card-body">
 
-                <h5 class="card-title">{{ project.title }}</h5>
+                <h5 class="card-title"><b>{{ project.title }}</b></h5>
 
                 <p class="card-text">{{ project.author }}</p>
 
                 <a href={{ project.link }}
 
-                   class="btn btn-primary">
+                   class="button">
 
                     Read
 
